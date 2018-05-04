@@ -1,0 +1,10 @@
+version: "3.5"
+services:
+  apache:
+    build: .
+    container_name: apache
+    restart: always
+    volumes:
+       - ${PROJECTS_DIR}:/var/www
+    ports:
+      - 80:80

@@ -1,0 +1,17 @@
+version: "2"
+services:
+  netatalk:
+    image: cptactionhank/netatalk:latest
+    container_name: netatalk
+    restart: always
+    network_mode: "host"
+    environment:
+      - AVAHI=1
+    volumes:
+      - ${TIMEMACHINE}:/media/timemachine
+      - ${SHARE}:/media/share
+      - ./afp.conf:/etc/afp.conf
+
+
+
+
