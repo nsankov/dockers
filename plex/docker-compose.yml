@@ -1,0 +1,14 @@
+version: "3.5"
+services:
+        plex:
+                image: plexinc/pms-docker
+                container_name: plex_srv
+                restart: always
+                volumes:
+                        - ./database:/config 
+                        - ./transcode:/transcode
+                        - ${DATA_PATH}:/data
+                network_mode: host
+                environment:
+                        - TZ=Europe/Moscow
+

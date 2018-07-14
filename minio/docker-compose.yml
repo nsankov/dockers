@@ -1,0 +1,16 @@
+version: "3.5"
+services:
+        minio:
+                image: minio/minio
+                container_name: drive_minio
+                restart: always
+                volumes:
+                        - /media/red:/data
+                        - ./config:/root/.minio
+                ports:
+                        - 0.0.0.0:9001:9000
+                environment:
+                        - MINIO_ACCESS_KEY=${LOGIN}
+                        - MINIO_SECRET_KEY=${KEY}
+
+                command: server /data

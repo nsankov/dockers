@@ -1,0 +1,17 @@
+version: "3.5"
+services:
+        rutorrent:
+                image: linuxserver/rutorrent
+                container_name: rutorrent_srv
+                restart: always
+                volumes:
+                        - ./config:/config 
+                        - ${DATA_PATH}:/downloads
+                ports:
+                        - 0.0.0.0:8070:80
+                        - 0.0.0.0:5000:5000
+                        - 0.0.0.0:51413:51413
+                        - 0.0.0.0:6881:6881
+                environment:
+                        - TZ=Europe/Moscow
+
