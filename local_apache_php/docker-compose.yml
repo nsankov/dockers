@@ -8,3 +8,52 @@ services:
        - ${PROJECTS_DIR}:/var/www
     ports:
       - 80:80
+  mysql:
+    image: mariadb
+    container_name: mysql
+    restart: always
+    volumes:
+       - ./volume/mysql:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - 127.0.0.1:3306:3306
+  postgres:
+    image: postgres
+    container_name: postgres
+    restart: always
+    volumes:
+       - ./volume/postgres:/var/lib/postgresql
+    environment:
+#      POSTGRES_DATABASE: ${DATABASE}
+#      POSTGRES_USER: ${USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - 127.0.0.1:5432:5432
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+  redis:
+      image: redis
+      container_name: redis
+      restart: always
+      ports:
+        - 127.0.0.1:6379:6379
