@@ -1,4 +1,5 @@
-data/*
-transcode/*
-config/*
+**/data
+**/transcode
+**/config
+**/database
 

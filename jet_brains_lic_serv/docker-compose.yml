@@ -5,4 +5,4 @@ services:
         image: luamas/jetbrains-license-server
         restart: always
         ports:
-                - 127.0.0.1:22508:22508
+                - 22508:22508
