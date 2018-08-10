@@ -7,6 +7,8 @@ services:
     network_mode: "host"
     environment:
       - AVAHI=1
+      - AFP_USER=${LOGIN}
+      - AFP_PASSWORD=${PASSWORD}  
     volumes:
       - ${TIMEMACHINE}:/media/timemachine
       - ${SHARE}:/media/share
