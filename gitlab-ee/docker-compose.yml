@@ -1,0 +1,18 @@
+version: "3.5"
+services:
+        gitlab-ee:
+                image: gitlab/gitlab-ce:latest
+                container_name: gitlab-ee
+                hostname: gitlab.bearcat.io
+                restart: always
+                volumes:
+                        - /srv/gitlab/config:/etc/gitlab
+                        - /srv/gitlab/logs:/var/log/gitlab
+                        - /srv/gitlab/data:/var/opt/gitlab
+                ports:
+                        - 127.0.0.1:9020:80
+                        - 127.0.0.1:9021:443
+                        - 127.0.0.1:9022:22
+                environment:
+                        - hostname=gitlab.bearcat.io
+
