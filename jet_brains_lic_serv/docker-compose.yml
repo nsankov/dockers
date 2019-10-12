@@ -1,8 +1,0 @@
-version: '3.5'
-
-services:
-    jetbrains_lic_server:
-        image: luamas/jetbrains-license-server
-        restart: always
-        ports:
-                - 22508:22508
