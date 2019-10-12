@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  redis:
+    image: 'library/redis'
+    container_name: redis
+    restart: always
+    command: ["redis-server", "--appendonly", "yes"]
+#    environment:
+    ports:
+      - '127.0.0.1:6379:6379'
+    volumes:
+      - './data:/data:rw'
